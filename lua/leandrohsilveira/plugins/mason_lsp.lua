@@ -3,12 +3,12 @@ return {
   opts = {
     ensure_installed = {
       "lua_ls",
+      "stylua",
       "cssls",
       "eslint",
-      "svelte",
       "emmet_ls",
       "jsonls",
-      "vtsls"
+      "vtsls",
     },
   },
   dependencies = {
