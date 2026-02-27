@@ -1,3 +1,6 @@
+-- comment the line below to activate this plugin
+if true then return {} end
+
 return {
   "OXY2DEV/markview.nvim",
   lazy = false,
@@ -7,4 +10,4 @@ return {
   -- dependencies = {
   --     "saghen/blink.cmp"
   -- },
-};
+}
