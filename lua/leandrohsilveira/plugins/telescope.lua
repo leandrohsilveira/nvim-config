@@ -1,7 +1,6 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.8",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-file-browser.nvim",
@@ -9,11 +8,11 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = function()
-      local builtin = require("telescope.builtin")
-      local telescope = require("telescope")
+      local builtin = require "telescope.builtin"
+      local telescope = require "telescope"
 
-      telescope.load_extension("ui-select")
-      telescope.load_extension("fzf")
+      telescope.load_extension "ui-select"
+      telescope.load_extension "fzf"
 
       vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
       vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Find files" })
@@ -28,25 +27,10 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         desc = "LSP actions",
         callback = function()
-          vim.keymap.set(
-            "n",
-            "gd",
-            builtin.lsp_definitions,
-            { desc = "Go to LSP definitions" }
-          )
-          vim.keymap.set(
-            "n",
-            "gi",
-            builtin.lsp_implementations,
-            { desc = "Go to LSP implementations" }
-          )
+          vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Go to LSP definitions" })
+          vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Go to LSP implementations" })
           vim.keymap.set("n", "grr", builtin.lsp_references, { desc = "Show LSP references" })
-          vim.keymap.set(
-            "n",
-            "gh",
-            builtin.lsp_incoming_calls,
-            { desc = "Show LSP incoming calls" }
-          )
+          vim.keymap.set("n", "gh", builtin.lsp_incoming_calls, { desc = "Show LSP incoming calls" })
         end,
       })
     end,
